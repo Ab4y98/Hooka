@@ -3,7 +3,8 @@ CC = go
 all:
 	mkdir build/
 	export CGO_ENABLED=0
-	GOARCH=amd64 GOOS=windows $(CC) build -o build/hooka-amd64-windows.exe main.go
+	go install mvdan.cc/garble@latest
+	garble -literals -tiny -seed=random build -tags=purego
 
 clean:
 	rm -rf build/
